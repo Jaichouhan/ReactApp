@@ -37,12 +37,13 @@ const Navbar = () => {
             </li>
             <div className="icon_center">
               <i className="fa fa-heart-o icon_center_i icon_center_i_hover"></i>
-              <i className="fa fa-user-o icon_center_i"></i>
+              <i className="fa fa-user-o icon_center_i icon_center_i_number"></i>
+              {/* <p className='icon_center_i_number_i'>1</p> */}
             </div>
             <li>
               <button className="btn-style theme-btn-1 btn_hover_effect" type="button">
                 <div className="Hover_effect_div"></div>
-                <Link to="/"  className="eff-1"> Contact Now</Link>
+                <Link to="/contact"  className="eff-1"> Contact Now</Link>
               </button>
             </li>
           </ul>
