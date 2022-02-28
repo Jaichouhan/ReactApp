@@ -1,8 +1,22 @@
-
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./Contact.scss";
 const Contact = () => {
+  const [data,setData] =useState("");
+  useEffect(() => {
+      axios.get("https://jsonplaceholder.typicode.com/comments?postId=1")
+      .then((res) => setData(res.data))
+      .then((err) => console.log(err))
+  },[])
   return (
     <>
+  {data && data.map((data) => (
+      <div key={data.id}>
+          <span>{data.name}</span>
+          <h1>{data.email}</h1>
+          <p>{data.body}</p>
+      </div>
+  ))}
       <div className="container-fluid bgped">
         <div className="container">
           <div className="row">
@@ -45,6 +59,7 @@ const Contact = () => {
                       name="name"
                     />
                   </div>
+
                   <div className="col-md-6">
                     <input
                       type="text"
@@ -53,6 +68,7 @@ const Contact = () => {
                       name="email"
                     />
                   </div>
+
                   <div className="col-md-6">
                     <input
                       type="number"
@@ -60,6 +76,7 @@ const Contact = () => {
                       placeholder="Phone"
                     />
                   </div>
+
                   <div className="col-md-6">
                     <input
                       type="text"
@@ -67,7 +84,7 @@ const Contact = () => {
                       placeholder="Company"
                     />
                   </div>
-                  
+
                   <div className="col-md-12">
                     <textarea
                       type="text"
